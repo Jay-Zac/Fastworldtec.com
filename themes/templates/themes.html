@@ -1,0 +1,72 @@
+{%extends 'base.html'%}
+{%block title%}Themes{%endblock%}
+{%block content%}
+<header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-2">
+            <div class="mt- image-container">
+                <h1 class="text-white text-center"><strong>All Themes</strong></h1>
+                <div class="text-white text-center "><strong class="text-2xl">Try Out These Themes!</strong>
+                </div>
+            </div>
+        </div>
+    </header>
+<div class="container">
+    <section class="py-2">
+        <form class="text-center" method="get" action="{%url 'themes:items2'%}">
+            <div><strong>Search Bar</strong></div>
+            <input name="query" class="mt-2 w-full py-3 px-2" type="text" value="{{query}}"
+                   placeholder="find a Theme" style="border-radius:10px;">
+            <button class="btn btn-primary py-3">Search</button>
+            <hr class="my-2 ">
+            <p><strong> Clear Search</strong></p>
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                <div class=" mt-2 text-center">
+                    <a class="btn btn-warning mb-3" href="{% url 'themes:items2'%}">
+                         Clear</a>
+                </div>
+            </div>
+        </form>
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    {% for item in items %}
+                        <div class="col mb-5">
+                            <div class="card h-100">
+                                {%if item.image%}
+                                <img class="card-img-top" src="{{ item.image.url }}" alt="Image" />
+                                {%endif%}
+                                <div class="card-body p-4">
+                                    <div class="text-justify">
+                                       <h1 class="mb-4 font-semibold text-lg">{{ item.name }}</h1>
+                                          {%if item.price%}
+                                            <p class="text-gray-500">
+                                                <strong>Price: </strong> {{ item.price }}&nbsp;USD</p>
+                                          {%endif%}
+                                            <p class="text-gray-500">
+                                                <strong>Category: </strong> {{ item.category}}</p>
+                                            <p class="text-gray-500">
+                                                <strong>Posted by: </strong> {{ item.created_by.username }}</p>
+
+                                          {% if item.description %}
+                                            <p class="text-gray-700">
+                                                <strong class="text-gray-500">Description:</strong><br>
+                                                {{ item.description }}
+                                            </p>
+                                          {% endif %}
+                                    </div>
+                                </div>
+                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                    <div class="text-center">
+
+                                        <a class="btn btn-primary mb-3" href="{{ item.affiliate_link }}">
+                                             Try Out</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+    </section>
+</div>
+
+{%endblock%}

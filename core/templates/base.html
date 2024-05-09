@@ -1,0 +1,71 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>{% block title %}{% endblock %} | fastworldtec</title>
+    <link rel="icon" type="image/x-icon" href="{%static 'assets/favicon.PNG'%}"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
+    <link href=" {%static 'css/styles.css'%}" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body style="background-color:gray">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container px-4 px-lg-5">
+        <img src="\media\logos\fastworldtechlogo.PNG" alt="logo" style="width: 50px;height: 50px;">
+        <a class="navbar-brand" href="{%url 'index'%}">Fastworldtec</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active"
+                                        aria-current="page" href="{% url 'software:items' %}">Software</a></li>
+                <li class="nav-item"><a class="nav-link active"
+                                        aria-current="page" href="{% url 'themes:items2' %}">Themes</a></li>
+                <li class="nav-item"><a class="nav-link active"
+                                        aria-current="page" href="{% url 'courses:items3' %}">Courses</a></li>
+                <li class="nav-item"><a class="nav-link active"
+                                        aria-current="page" href="{% url 'tools:items4' %}">Tools</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section>
+    {%block content%}
+
+    {%endblock%}
+</section>
+<div class="text-center text-white block rounded-md px-3 py-2 text-base font-medium p-4 pt-0 border-top-0
+                 bg-transparent"><a class="btn btn-outline-dark mt-auto" href="{%url 'index'%}">Homepage</a></div>
+<div>
+    <div style="float:right;position:fixed;bottom:0px; right:0px;">
+        <a class="btn btn-info mb-3"
+           href="#top">Back to Top
+        </a>
+    </div>
+</div>
+
+
+<footer class="mt-4 text-center py-5 bg-dark">
+    <div class="container mt-2">
+        <h3 class="text-white">Contact Us</h3>
+        <a href="mailto:infofirstworldtec@gmail.com" class="text-center px-2">
+            <i class="fa-regular fa-envelope">&nbsp;infofirstworldtec@gmail.com</i>
+        </a>
+        <a href="tel:+1 929 566 4618" class="px-2">
+            <i class="fa-solid fa-phone">&nbsp; Tel:&nbsp;+1 929 566 4618</i></a>
+    </div>
+    <div class="container"><p class="mt-2 m-0 text-center text-white">
+        Copyright: &copy; 2024 fastworldtec | All Rights Reserved</p></div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{%static 'js/scripts.js'%}"></script>
+</body>
+</html>
