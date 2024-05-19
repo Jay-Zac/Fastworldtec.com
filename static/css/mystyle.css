@@ -14,7 +14,7 @@
     position: absolute;
     top: 15%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     color: #fd7e14;
     font-size: 24px;
     text-align: center;
@@ -24,34 +24,27 @@
     position: absolute;
     top: 70%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     font-size: 24px;
     text-align: center;
-    background: ;
+
 }
 
 @media only screen and (max-width: 768px) {
     .overlay-text {
         top: 20%;
-        font-size: 20px;
+        font-size: 15px;
     }
 
     .overlay-text-start {
-        top: 70%;
-        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
         font-size: 20px;
-
-    }
-    h2 {
-    color: #;
     }
 }
 
 @media only screen and (min-width: 769px) {
-    .overlay-text {
-        font-size: 32px;
-    }
-
+    .overlay-text,
     .overlay-text-start {
         font-size: 32px;
     }
